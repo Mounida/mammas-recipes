@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Détails de la Recette</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css">
+  <style>
+    .wrap {
+        margin: 0;
+        padding: 20px;
+        font-family: sans-serif;
+        background-color: #F2F1EB;
+        font-family: 'Caveat', cursive;
+        display: flex;
+        flex-direction: column;
+        min-width: 300px;
+        min-height: 100vh;
+        line-height: 1.4; 
+        display: grid;
+        place-content: center;
+        margin-top: 40px;
+    }
+    
+    .container .recipe-img img {
+        width: 500px;
+        height: 400px;
+        object-fit: cover; 
+        border-radius: 10px;
+        margin-left: 5rem;
+    }
+    h1{
+        font-size: 2.8rem;
+        color: #B7303D;
+        font-weight: 700;
+        text-align: center;
+    }
+    h2{
+        color: #DB4648;
+        font-weight: 700;
+        margin-bottom: 1rem 0;
+
+    }
+
+    ul{
+        padding-left: 1.25rem;
+    }
+    ol li::marker,ul li::marker{
+        color: #B7303D;
+        font-weight: bold;
+    }
+    ul li{
+        margin-bottom: .5rem;
+    }
+    ul li span { color: #1f2122; 
+        margin-left: 1rem;
+        font-weight: 700;
+    }
+    hr{
+        margin: 1.5rem 0;
+        border: 1px solid #cfcfcf;
+    }
+    .container{
+        width: 800px;
+        background-color:#FFF5EB;
+        margin: 2rem;
+        border-radius: 1rem;
+    }
+    
+    .container .recipe-img{
+        padding: 2rem;
+        border-radius: 1rem;
+        overflow: hidden;
+    }
+
+    .recipe-information{
+        padding: 0rem 2rem 2rem 2rem;
+    }
+    .description {
+        margin: 1.5rem 0;
+    }
+    .recipe-prep-time {
+        background-color: #FFB59F;
+        padding: 1.25rem;
+        border-radius: 1rem;
+    }
+    .recipe-prep-time h3{
+        color: #7A122D;
+        margin-bottom: .75rem;
+        }
+    .recipe-prep-time ul li::marker {
+            color:    #7A122D;
+        }
+    .ingredients li {
+        margin-bottom:.5rem;
+    }
+    .ingredients li span {
+    font-weight:initial;
+    }
+    button{
+    outline: 0;
+    grid-gap: 8px;
+    align-items: center;
+    background-color:#FFB59F;
+    color: #000;
+    border: 1px solid #000;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-flex;
+    flex-shrink: 0;
+    font-size: 16px;
+    gap: 8px;
+    justify-content: center;
+    line-height: 1.5;
+    overflow: hidden;
+    padding: 12px 16px;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    transition: all .14s ease-out;
+    white-space: nowrap;
+    margin-right: 20px;
+    margin-top: 50px;
+    }
+    button:hover {
+        box-shadow: 4px 4px 0 #000;
+        transform: translate(-4px,-4px);
+    }
+    button:focus-visible{
+        outline-offset: 1px;
+    }
+     #name{
+        color: #523e40;
+        font-family: "Macondo", cursive;
+        text-align: center;
+        margin-top: 30px;
+        font-size: 50px;
+    }
+  </style>
+</head>
+<nav>
+    <img src="Images/logo.png" alt="logo">
+<a href="index.html">Mammas Recipes</a>
+</nav>
+<body>
+    <div class="wrap">
+  <h1>Détails de la Recette</h1>
+
+  <div id="recipe" class="container">
+    <!-- Les détails de la recette seront affichés ici -->
+  </div>
+</div>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const recipeId = params.get('id');
+
+    fetch(`backend.php?action=get&id=${recipeId}`)
+      .then(response => response.json())
+      .then(data => {
+        const recipe = data.recette;
+        if (!recipe) {
+          document.getElementById('recipe').innerHTML = '<p>Recette non trouvée.</p>';
+          return;
+        }
+
+        const recipeDiv = document.getElementById('recipe');
+        const imageHtml = recipe.image ? `<div class="recipe-img"><img src="${recipe.image}" alt="${recipe.nom}"></div>` : '';
+
+        recipeDiv.innerHTML = `
+          <div class="recipe-information">
+          <h1 id="name">${recipe.nom}</h1>
+          ${imageHtml}
+          <div class="recipe-prep-time">
+          <ul>
+          <li>Catégorie : ${recipe.catégorie}</li>
+          <li>Durée de cuisson : ${recipe.temps_cuisson} minutes</li>
+          <li>Difficulté : ${recipe.difficulté}</li>
+          </ul>
+          </div>
+          <div class="recipe-step">
+          <h2>Ingrédients :</h2>
+          <ul class="ingredients">
+            ${recipe.ingrédients.map(ing => `<li><span>${ing}</span></li>`).join('')}
+          </ul>
+          </div>
+          <hr>
+          <div class="recipe-step">
+          <h2>Instructions :</h2>
+          <div class="instructions">
+          <ol>
+            ${recipe.instructions.map(inst => `<li>${inst}</li>`).join('')}
+          </ol>
+          </div>
+          <button onclick="window.location.href='modify.html?id=' + recipeId"><i class="ri-edit-2-line"></i></button>
+          <button onclick="supprimerRecette()"><i class="ri-delete-bin-6-line"></i></button>
+        </div>
+        `;
+      })
+      .catch(error => {
+        console.error('Erreur lors du chargement des détails de la recette :', error);
+        document.getElementById('recipe').innerHTML = '<p>Erreur lors du chargement des détails de la recette.</p>';
+      });
+
+    function supprimerRecette() {
+        
+      if (confirm("Êtes-vous sûr de vouloir supprimer cette recette ?")) {
+        fetch(`backend.php?action=delete`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: `id=${recipeId}`,
+        })
+        .then(response => response.text())
+        .then(data => {
+          alert(data); 
+          window.location.href = 'index.html'; 
+        })
+        .catch(error => {
+          console.error("Erreur lors de la suppression de la recette :", error);
+        });
+      }
+    }
+  </script>
+    <footer>
+        <h4>Made with Love by <b>DAOUDI Mounira</b></h4>
+      </footer>
+</body>
+</html>

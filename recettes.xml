@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recettes>
+  
+
+  
+
+  <recette>
+    <id>3</id>
+    <nom>Msemen</nom>
+    <catégorie>Petit-déjeuner</catégorie>
+    <difficulté>Moyen</difficulté>
+    <image>images/msemen.jpeg</image>
+    <ingrédients>
+      <ingrédient>Farine</ingrédient>
+      <ingrédient>Semoule</ingrédient>
+      <ingrédient>Beurre</ingrédient>
+      <ingrédient>Huile</ingrédient>
+    </ingrédients>
+    <instructions>
+      <étape>Préparer la pâte.</étape>
+      <étape>Former des carrés.</étape>
+      <étape>Cuire sur une poêle chaude.</étape>
+    </instructions>
+    <temps_cuisson>30</temps_cuisson>
+  </recette>
+
+  <recette>
+    <id>4</id>
+    <nom>Couscous</nom>
+    <catégorie>Déjeuner</catégorie>
+    <difficulté>Difficile</difficulté>
+    <image>images/couscous.jpeg</image>
+    <ingrédients>
+      
+      
+      
+      
+    <ingrédient>Semoule de couscous</ingrédient><ingrédient>Viande</ingrédient><ingrédient>Légumes</ingrédient><ingrédient>Épices</ingrédient></ingrédients>
+    <instructions>
+      
+      
+      
+    <étape>Cuire la semoule à la vapeur.</étape><étape>Ajouter de la viande et des légumes.</étape><étape>Mélanger le tout.</étape></instructions>
+    <temps_cuisson>90</temps_cuisson>
+  </recette>
+
+  <recette>
+    <id>5</id>
+    <nom>Loubia</nom>
+    <catégorie>Déjeuner</catégorie>
+    <difficulté>Facile</difficulté>
+    <image>images/loubia.jpg</image>
+    <ingrédients>
+      <ingrédient>Haricots blancs</ingrédient>
+      <ingrédient>Tomates</ingrédient>
+      <ingrédient>Épices</ingrédient>
+    </ingrédients>
+    <instructions>
+      <étape>Faire cuire les haricots avec des tomates.</étape>
+      <étape>Ajouter des épices.</étape>
+      <étape>Cuire jusqu'à ce que les haricots soient tendres.</étape>
+    </instructions>
+    <temps_cuisson>60</temps_cuisson>
+  </recette>
+
+  <recette>
+    <id>6</id>
+    <nom>Rechta</nom>
+    <catégorie>Déjeuner</catégorie>
+    <difficulté>Difficile</difficulté>
+    <image>images/rechta.jpeg</image>
+    <ingrédients>
+      
+      
+      
+    <ingrédient>Rechta (pâtes fines)</ingrédient><ingrédient>Poulet</ingrédient><ingrédient>Légumes</ingrédient></ingrédients>
+    <instructions>
+      
+      
+      
+    <étape>Cuire le poulet avec des légumes.</étape><étape>Ajouter les pâtes.</étape><étape>Cuire jusqu'à ce que le tout soit prêt.</étape></instructions>
+    <temps_cuisson>60</temps_cuisson>
+  </recette>
+
+  <recette>
+    <id>7</id>
+    <nom>Mhadjeb</nom>
+    <catégorie>Dîner</catégorie>
+    <difficulté>Moyen</difficulté>
+    <image>images/mhadjeb.jpg</image>
+    <ingrédients>
+      <ingrédient>Farine</ingrédient>
+      <ingrédient>Semoule</ingrédient>
+      <ingrédient>Tomates</ingrédient>
+      <ingrédient>Poivrons</ingrédient>
+    </ingrédients>
+    <instructions>
+      <étape>Préparer la pâte.</étape>
+      <étape>Farcir avec des tomates et des poivrons.</étape>
+      <étape>Cuire sur une poêle.</étape>
+    </instructions>
+    <temps_cuisson>40</temps_cuisson>
+  </recette>
+
+  <recette>
+    <id>8</id>
+    <nom>Tajine Zitoune</nom>
+    <catégorie>Dîner</catégorie>
+    <difficulté>Moyen</difficulté>
+    <image>images/tajine_zitoune.jpg</image>
+    <ingrédients>
+      <ingrédient>Poulet</ingrédient>
+      <ingrédient>Olives</ingrédient>
+      <ingrédient>Épices</ingrédient>
+    </ingrédients>
+    <instructions>
+      <étape>Cuire le poulet avec des olives.</étape>
+      <étape>Ajouter des épices.</étape>
+      <étape>Cuire jusqu'à ce que le poulet soit tendre.</étape>
+    </instructions>
+    <temps_cuisson>60</temps_cuisson>
+  </recette>
+
+  <recette>
+    <id>9</id>
+    <nom>Makrout</nom>
+    <catégorie>Desserts</catégorie>
+    <difficulté>Difficile</difficulté>
+    <image>images/makrout.jpg</image>
+    <ingrédients>
+      <ingrédient>Semoule</ingrédient>
+      <ingrédient>Dattes</ingrédient>
+      <ingrédient>Miel</ingrédient>
+    </ingrédients>
+    <instructions>
+      <étape>Préparer la pâte de semoule.</étape>
+      <étape>Farcir avec des dattes.</étape>
+      <étape>Frire.</étape>
+    </instructions>
+    <temps_cuisson>90</temps_cuisson>
+  </recette>
+
+  <recette>
+    <id>10</id>
+    <nom>Ghribia</nom>
+    <catégorie>Desserts</catégorie>
+    <difficulté>Facile</difficulté>
+    <image>images/ghribya.jpg</image>
+    <ingrédients>
+      <ingrédient>Farine</ingrédient>
+      <ingrédient>Beurre</ingrédient>
+      <ingrédient>Sucre</ingrédient>
+    </ingrédients>
+    <instructions>
+      <étape>Mélanger les ingrédients.</étape>
+      <étape>Former des biscuits.</étape>
+      <étape>Cuire au four.</étape>
+    </instructions>
+    <temps_cuisson>30</temps_cuisson>
+  </recette>
+
+  <recette>
+    <id>11</id>
+    <nom>Qalb El Louz</nom>
+    <catégorie>Desserts</catégorie>
+    <difficulté>Moyen</difficulté>
+    <image>images/qalb_el_louz.jpg</image>
+    <ingrédients>
+      <ingrédient>Semoule</ingrédient>
+      <ingrédient>Amandes</ingrédient>
+      <ingrédient>Miel</ingrédient>
+    </ingrédients>
+    <instructions>
+      <étape>Préparer un gâteau avec de la semoule.</étape>
+      <étape>Ajouter des amandes.</étape>
+      <étape>Cuire au four.</étape>
+    </instructions>
+    <temps_cuisson>60</temps_cuisson>
+  </recette>
+
+  <recette>
+    <id>13</id>
+    <nom>Sfenj</nom>
+    <catégorie>Collations</catégorie>
+    <difficulté>Facile</difficulté>
+    <image>images/sfenj.jpeg</image>
+    <ingrédients>
+      <ingrédient>Farine</ingrédient>
+      <ingrédient>Levure</ingrédient>
+      <ingrédient>Sucre</ingrédient>
+    </ingrédients>
+    <instructions>
+      <étape>Préparer la pâte.</étape>
+      <étape>Frire dans l'huile chaude.</étape>
+      <étape>Égoutter sur du papier absorbant.</étape>
+    </instructions>
+    <temps_cuisson>30</temps_cuisson>
+  </recette>
+
+  <recette>
+    <id>14</id>
+    <nom>Thé à la menthe</nom>
+    <catégorie>Boissons</catégorie>
+    <difficulté>Facile</difficulté>
+    <image>images/the_a_la_menthe.jpg</image>
+    <ingrédients>
+      <ingrédient>Thé vert</ingrédient>
+      <ingrédient>Menthe</ingrédient>
+      <ingrédient>Sucre</ingrédient>
+    </ingrédients>
+    <instructions>
+      <étape>Faire bouillir le thé.</étape>
+      <étape>Ajouter de la menthe.</étape>
+      <étape>Servir chaud.</étape>
+    </instructions>
+    <temps_cuisson>10</temps_cuisson>
+  </recette>
+<recette><id>15</id><nom>Riz au poulet </nom><catégorie>Dîner</catégorie><difficulté>Moyen</difficulté><image>images/riz-au-poulet.jpg</image><ingrédients><ingrédient>du poulet (poitrine)</ingrédient><ingrédient>une tête d'ail</ingrédient><ingrédient>riz</ingrédient><ingrédient>tomate fraîche ( ou en boite)</ingrédient><ingrédient>0.5 cuillère à soupe de tomate en conserve</ingrédient><ingrédient>lauriet et thym</ingrédient><ingrédient>sel et poivre noir, cumin, et paprika</ingrédient><ingrédient>maïzena</ingrédient><ingrédient>huile pour friture</ingrédient></ingrédients><instructions><étape>Tout d'abord commencer par mariner le poulet que vous avez couper en morceau, avec du sel, poivre noir, cumin et paprika, faire rouler après dans de la maïzena, et frire.</étape><étape>Riz au poulet typiquement Algerois, plat Algerien Bien égoutter.</étape><étape>Préparez du riz blanc, en faisant cuire l’équivalent d'une mesure de riz avec deux mesures d'eau, n’hésiter pas a jouter de l'eau a votre riz, si vous voyez qu'il ne pas tendre comme vous le voulez.</étape><étape>Préparez une sauce avec un peu d'huile, 1 tête d'ail écraser, vous y ajoutez la tomate en conserve et la tomate fraîche, le lauriet, le thym, le sel, le poivre, le cumin, et le paprika.</étape><étape>Riz au poulet typiquement Algerois, plat Algerien Laisser mijoter un peu, y ajouter votre poulet, laisser encore mijoter un peu.</étape><étape>Diviser votre sauce en 2 part, dans l'une ajouter le riz cuit.</étape><étape>L'autre part, décorer avec le riz avant de servir.</étape></instructions><temps_cuisson>30</temps_cuisson></recette><recette><id>16</id><nom>Ktaiefs</nom><catégorie>Desserts</catégorie><difficulté>Moyen</difficulté><image>images/ktaiefs-algeriennes-patisserie-algerienne-aux-cheveux-d-anges--md-168953p252495.jpg</image><ingrédients><ingrédient>1 paquet de 500 g de Ktaiefs/Kadaifs</ingrédient><ingrédient>250 à 300 g de beurre doux fondu</ingrédient><ingrédient>2 tasses d'amandes moulues en gravillons ( pas en poudre )</ingrédient><ingrédient>1 tasse de noix moulues en gravillons</ingrédient><ingrédient>1/2 tasse de sucre semoule</ingrédient><ingrédient>Une grosse pincée de cannelle moulue</ingrédient><ingrédient>Eau de fleur d'oranger</ingrédient><ingrédient>Miel mélangé à de l'eau de fleur d'oranger ou du sirop de miel maison</ingrédient></ingrédients><instructions><étape>Préparer le four à 180°C.</étape><étape>Préparer la farce en mélangeant les grivillons d'amandes, de noix, le sucre, la grosse pincée de cannelle et mouiller avec un peu de fleur d'oranger.</étape><étape>Attention, la farce ne devra pas se ramasser comme pour les autres gâteaux.</étape><étape>Beurrer un plat allant au four de taille moyenne.</étape><étape>Dans une grande terrine, démêler le mieux possible les pelotes de Ktaiefs, sans les casser, et les imbiber avec le beurre préalablement fondu.</étape><étape>Séparer ensuite les Ktaiefs imbibés de beurre en deux parties égales.</étape><étape>Prendre une première moitie de Ktaiefs et l'étaler dans le moule beurré puis étendre dessus la farce sur toute la surface du moule de façon homogène.</étape><étape>Couvrir avec la seconde part de Ktaiefs imbibés de manière uniforme pour couvrir la farce.</étape><étape>Enfourner pour environ 20 à 30 minutes en tournant le plat de temps en temps pour que la couleur du gâteau soit bien uniforme.</étape><étape>Le gâteau devra prendre une couleur joliment dorée.</étape><étape>Une fois le gâteau cuit, directement sortant du four, l'arroser généreusement de sirop de miel ou miel froid afin que le gâteau imbibe bien.</étape><étape>Pour que le gâteau imbibe bien, il est impératif que le liquide d'absorption soit à la température opposée à celui du gâteau.</étape><étape>Laisser totalement refroidir puis laisser reposer plusieurs heures à au mieux, une nuit avant de couper en carrés.</étape><étape>Le gâteau sera plus stable et mieux imbibé.</étape></instructions><temps_cuisson>50</temps_cuisson></recette></recettes>

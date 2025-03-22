@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Mommas Recipes</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css">
+</head>
+<body>
+  <nav>
+    <img src="Images/logo.png" alt="logo">
+    <a href="index.html">Mammas Recipes</a>
+  </nav>
+<div class="search-container">
+  <div class="search">
+    <!-- Champ de recherche -->
+    <input type="text" class="searchTerm" id="searchInput" placeholder="Rechercher par nom..." oninput="rechercherRecettes()">
+    <button class="search-i" onclick="rechercherRecettes()"><i class="ri-search-line"></i></button>
+    </div>
+<div class="filter">
+    <!-- Filtrage par catégorie -->
+    <select id="filterCategory" name="catégorie" onchange="rechercherRecettes()">
+      <option value="">Toutes les catégories</option>
+      <option value="Petit-déjeuner">Petit-déjeuner</option>
+      <option value="Déjeuner">Déjeuner</option>
+      <option value="Dîner">Dîner</option>
+      <option value="Desserts">Desserts</option>
+      <option value="Collations">Collations</option>
+      <option value="Boissons">Boissons</option>
+    </select>
+
+    <!-- Filtrage par difficulté -->
+    <select id="filterDifficulty" name="difficulté" onchange="rechercherRecettes()">
+      <option value="">Toutes les difficultés</option>
+      <option value="Facile">Facile</option>
+      <option value="Moyen">Moyen</option>
+      <option value="Difficile">Difficile</option>
+    </select>
+
+    <!-- Filtrage par temps de cuisson -->
+    <input type="number" id="filterMinTime" placeholder="Temps de cuisson min (min)" onchange="rechercherRecettes()">
+    <input type="number" id="filterMaxTime" placeholder="Temps de cuisson max (min)" onchange="rechercherRecettes()">
+  </div>  </div>  
+</div>  
+  <!-- Bouton pour ajouter une nouvelle recette -->
+  <button onclick="window.location.href='add.html'" class="add-button">Ajouter une recette</button>
+
+  <div id="recettes">
+    <!-- Les recettes filtrées seront affichées ici -->
+  </div>
+
+  <script>
+    function afficherRecettes(recettes) {
+      const recettesDiv = document.getElementById('recettes');
+      recettesDiv.innerHTML = '';  // Effacer les recettes existantes
+
+      recettes.forEach(recette => {
+        const div = document.createElement('div');
+        div.classList.add('recipe-card'); // Add the recipe-card class
+        const imageHtml = recette.image ? `<img src="${recette.image}" alt="${recette.nom}" width="150">` : '';
+
+        div.innerHTML = `
+          <h2>${recette.nom}</h2>
+          ${imageHtml}
+          <p>Temps de cuisson : ${recette.temps_cuisson} minutes | Difficulté: ${recette.difficulté}</p>
+          <a href="recipe.html?id=${recette.id}">Lire la suite</a>
+        `;
+
+        recettesDiv.appendChild(div);
+      });
+    }
+
+    function rechercherRecettes() {
+      const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+      const category = document.getElementById('filterCategory').value;
+      const difficulty = document.getElementById('filterDifficulty').value;
+      const maxTime = document.getElementById('filterMaxTime').value;
+      const minTime = document.getElementById('filterMinTime').value;
+
+      fetch(`backend.php?action=read&name=${searchTerm}&category=${category}&difficulty=${difficulty}&time=${maxTime}`)
+        .then(response => response.json())
+        .then(data => {
+          const filteredRecettes = data.recettes.filter(recette => {
+        const nameMatches = recette.nom.toLowerCase().includes(searchTerm);
+        const categoryMatches = category ? recette.catégorie === category : true;
+        const difficultyMatches = difficulty ? recette.difficulté === difficulty : true;
+        const maxTimeMatches = maxTime ? recette.temps_cuisson <= maxTime : true;
+        const minTimeMatches = minTime ? recette.temps_cuisson >= minTime : true;
+
+        return nameMatches && categoryMatches && difficultyMatches && maxTimeMatches && minTimeMatches;
+      });
+
+          afficherRecettes(filteredRecettes);  // Display filtered recipes
+        })
+        .catch(error => {
+          console.error("Erreur lors de la recherche des recettes :", error);
+        });
+    }
+
+    // Display all recipes on startup
+    fetch('backend.php?action=read')
+      .then(response => response.json())
+      .then(data => {
+        afficherRecettes(data.recettes);  // Display all recipes
+      })
+      .catch(error => {
+        console.error("Erreur lors du chargement des recettes :", error);
+      });
+  </script>
+
+  <footer>
+    <h4>Made with Love by <b>DAOUDI Mounira</b></h4>
+  </footer>
+</body>
+</html>

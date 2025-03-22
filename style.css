@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Diphylleia&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Gloria+Hallelujah&family=Indie+Flower&family=Jersey+10&family=Macondo&family=Poetsen+One&family=Sevillana&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+*{
+  box-sizing: border-box;
+
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: #F2F1EB;
+    font-family: 'Caveat', cursive;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+    width: 100%;
+
+}
+.recettes {
+    flex: 1;
+    padding: 20px;
+}
+nav {
+    background-color: #FFEFE4;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    gap: 20px;
+    place-content: center;
+}
+
+nav img {
+    height: 90px;
+    border-radius: 5px;
+}
+
+nav a {
+    color: #B7303D;
+    font-size: 2rem;
+    margin: 0;
+    font-family: "Gloria Hallelujah", cursive;
+    text-decoration: none;
+
+}
+
+  
+nav:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: box-shadow 0.3s;
+}
+
+.search-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+.search {
+    width: 40%;
+    position: absolute;
+    position: relative;
+    display: flex;
+    margin-top: 50px;
+  }
+
+  .searchTerm {
+    width: 100%;
+    border: 3px solid #B7303D;
+    border-right: none;
+    padding: 5px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    color: #040404;
+  }
+  
+  .searchTerm:focus{
+    color: #040404;
+  }
+  
+  .searchButton {
+    width: 40px;
+    height: 36px;
+    border: 1px solid #B7303D;
+    background: #B7303D;
+    text-align: center;
+    color: #B7303D;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  .search-i{
+    width: 40px;
+  height: 36px;
+  border: 1px solid #B7303D;
+  background: #B7303D;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+  place-content: center;
+  }
+.filter {
+    display: flex;
+    gap: 15px; 
+    padding: 15px;
+}
+
+.filter select,
+.filter input {
+    border: 2px solid #DB4648;
+    border-radius: 10px; /* Rounded corners */
+    padding: 10px;
+    font-family: "Gloria Hallelujah", cursive;
+    outline: none;
+    transition: border-color 0.3s; /* Smooth transition */
+}
+
+.filter select:focus,
+.filter input:focus {
+    border-color: #DB4648; /* Change border color on focus */
+}
+
+  .add-button {
+    align-items: center;
+    background-color: #fee6e3;
+    border: 2px solid #B7303D;
+    border-radius: 8px;
+    box-sizing: border-box;
+    color: #B7303D;
+    cursor: pointer;
+    display: flex;
+    font-family: Inter,sans-serif;
+    font-size: 16px;
+    height: 48px;
+    width: 250px;
+    left: 80%;
+    margin-top: 80px;
+    margin-bottom: 25px;
+    justify-content: center;
+    line-height: 24px;
+    max-width: 100%;
+    padding: 0 25px;
+    position: relative;
+    text-align: center;
+    touch-action: manipulation;
+  }
+  
+  .add-button:after {
+    background-color: #B7303D;
+    border-radius: 8px;
+    content: "";
+    display: block;
+    height: 48px;
+    left: 0;
+    width: 100%;
+    position: absolute;
+    top: -2px;
+    transform: translate(8px, 8px);
+    transition: transform .2s ease-out;
+    z-index: -1;
+  }
+  
+  .add-button:hover:after {
+    transform: translate(0, 0);
+  }
+  
+  .add-button:active {
+    background-color: #ffdeda;
+    outline: 0;
+  }
+  
+  .add-button:hover {
+    outline: 0;
+  }
+  
+  @media (min-width: 768px) {
+    .add-button {
+      padding: 0 40px;
+    }
+  }
+
+#recettes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 300px));
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  margin: 0 auto; /* Center the grid */
+  max-width: 1800px; /* Optional: Keeps content nicely centered */
+
+}
+@media (max-width: 768px) {
+  #recettes {
+    gap: 20px;
+  }
+}
+
+
+
+/* Styling individual recipe cards */
+.recipe-card {
+  background-color: #FFF5EB; 
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+  transition: box-shadow 0.3s;
+  width: 100%; /* Allow it to stretch */
+  max-width: 300px;
+}
+
+.recipe-card img {
+  width: 100%; /* Responsive image */
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+
+.recipe-card:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Hover effect for interaction */
+}
+.recipe-card h2 {
+    margin: 10px 0;
+    font-size: 1.5rem;
+    color: #B7303D; /* Aesthetically pleasing text color */
+}
+
+.recipe-card p {
+    color: #7A122D; /* Consistent text color */
+}
+
+.recipe-card a {
+    text-decoration: none;
+    color: #DB4648; /* Link color */
+    font-weight: bold;
+}
+
+footer {
+    background-color: #FFEFE4;
+    padding: 20px;
+    text-align: center;
+    color: #B7303D;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 15%;
+}
+
+footer h4 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+footer b {
+    font-weight: bold;
+}
+
+footer:after {
+    content: '❤';
+    font-size: 1.2rem;
+    color: #B7303D;
+    margin-left: 10px;
+}

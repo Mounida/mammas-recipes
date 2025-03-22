@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Ajouter une Recette</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+    h1{
+      color: #B7303D;
+    }
+  .wrap {
+      margin-top: 80px;
+      padding: 0;
+      font-family: "Indie Flower", cursive;
+      background-color: #F2F1EB;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+  }
+  form {
+      background-color: #FFF5EB;
+      padding: 60px;
+      margin-top: 40px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      width: 600px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px; 
+  }
+
+  form label {
+      font-size: 1.20rem;
+      color: #B7303D;
+  }
+
+  form input,
+  form select,
+  form textarea {
+      border: 2px solid #FCA5A5;
+      border-radius: 10px;
+      padding: 10px;
+      outline: none;
+      font-family: "Indie Flower", cursive;
+      font-size: 18px;
+  }
+
+  form button {
+      background-color: #FCA5A5;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s;
+  }
+
+  form button:hover {
+      background-color: #ff8383;
+  }
+
+  </style>
+</head>
+<body>
+  <nav>
+    <img src="Images/logo.png" alt="logo">
+    <a href="index.html">Mammas Recipes</a>
+
+</nav>
+<div class="wrap">
+  <h1>Ajouter une Nouvelle Recette</h1>
+
+  <form action="backend.php?action=add" method="post" enctype="multipart/form-data">
+    <label pour="nom">Nom de la recette :</label>
+    <input type="text" id="nom" name="nom" required><br>
+
+    <label pour="catégorie">Catégorie :</label>
+    <select id="catégorie" name="catégorie">
+      <option value="Petit-déjeuner">Petit-déjeuner</option>
+      <option value="Déjeuner">Déjeuner</option>
+      <option value="Dîner">Dîner</option>
+      <option value="Desserts">Desserts</option>
+      <option value="Collations">Collations</option>
+      <option value="Boissons">Boissons</option>
+    </select><br>
+    <label pour="difficulté">Niveau de difficulté :</label>
+    <select id="difficulté" name="difficulté">
+      <option value="Facile">Facile</option>
+      <option value="Moyen">Moyen</option>
+      <option value="Difficile">Difficile</option>
+    </select><br>
+    
+    <label pour="temps_cuisson">Temps de cuisson (minutes) :</label>
+    <input type="number" id="temps_cuisson" name="temps_cuisson" required><br>
+
+    <label pour="ingredients">Ingrédients :</label>
+    <textarea id="ingredients" name="ingredients" rows="5" required></textarea><br>
+
+    <label pour="instructions">Instructions :</label>
+    <textarea id="instructions" name="instructions" rows="5" required></textarea><br>
+
+    <label pour="image">Image de la recette :</label>
+    <input type="file" id="image" name="image"><br>
+
+    <button type="submit">Ajouter la recette</button>
+  </form>
+</div>
+<footer>
+  <h4>Made with Love by <b>DAOUDI Mounira</b></h4>
+</footer>
+</body>
+</html>

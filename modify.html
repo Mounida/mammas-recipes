@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Modifier la Recette</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+    h1{
+      color: #B7303D;
+      text-align: center;
+      margin-top: 80px;
+    }
+  #modify-recipe {
+      padding: 0;
+      font-family: "Indie Flower", cursive;
+      background-color: #F2F1EB;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+  }
+  form {
+      background-color: #FFF5EB;
+      padding: 60px;
+      margin-top: 40px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      width: 600px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px; 
+  }
+
+  form label {
+      font-size: 1.20rem;
+      color: #B7303D;
+  }
+
+  form input,
+  form select,
+  form textarea {
+      border: 2px solid #FCA5A5;
+      border-radius: 10px;
+      padding: 10px;
+      outline: none;
+      font-family: "Indie Flower", cursive;
+      font-size: 18px;
+  }
+
+  form button {
+      background-color: #FCA5A5;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s;
+  }
+
+  form button:hover {
+      background-color: #ff8383;
+  }
+
+  </style>
+</head>
+<body>
+    <nav>
+        <img src="Images/logo.png" alt="logo">
+        <a href="index.html">Mammas Recipes</a>
+    
+    </nav>
+  <h1>Modifier la Recette</h1>
+
+  <div id="modify-recipe">
+    <!-- Formulaire pour modifier la recette -->
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const recipeId = params.get('id');
+
+    // Obtenir les détails de la recette pour les afficher dans le formulaire
+    fetch(`backend.php?action=get&id=${recipeId}`)
+      .then(response => response.json())
+      .then(data => {
+        const recipe = data.recette;
+        if (!recipe) {
+          document.getElementById('modify-recipe').innerHTML = '<p>Recette non trouvée.</p>';
+          return;
+        }
+
+        const modifyDiv = document.getElementById('modify-recipe');
+
+        const imageHtml = recipe.image ? `<img src="${recipe.image}" alt="${recipe.nom}" width="200">` : '';
+
+        modifyDiv.innerHTML = `
+          <form action="backend.php?action=edit" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="id" value="${recipeId}">
+
+            <label pour="nom">Nom de la recette :</label>
+            <input type="text" id="nom" name="nom" value="${recipe.nom}" required><br>
+
+            <label pour="catégorie">Catégorie :</label>
+            <select id="catégorie" name="catégorie" required>
+              <option value="Petit-déjeuner" ${recipe.catégorie === 'Petit-déjeuner' ? 'selected' : ''}>Petit-déjeuner</option>
+              <option value="Déjeuner" ${recipe.catégorie === 'Déjeuner' ? 'selected' : ''}>Déjeuner</option>
+              <option value="Dîner" ${recipe.catégorie === 'Dîner' ? 'selected' : ''}>Dîner</option>
+              <option value="Desserts" ${recipe.catégorie === 'Desserts' ? 'selected' : ''}>Desserts</option>
+              <option value="Collations" ${recipe.catégorie === 'Collations' ? 'selected' : ''}>Collations</option>
+              <option value="Boissons" ${recipe.catégorie === 'Boissons' ? 'selected' : ''}>Boissons</option>
+            </select><br>
+
+            <label pour="difficulté">Niveau de difficulté :</label>
+            <select id="difficulté" name="difficulté" required>
+              <option value="Facile" ${recipe.difficulté === 'Facile' ? 'selected' : ''}>Facile</option>
+              <option value="Moyen" ${recipe.difficulté === 'Moyen' ? 'selected' : ''}>Moyen</option>
+              <option value="Difficile" ${recipe.difficulté === 'Difficile' ? 'selected' : ''}>Difficile</option>
+            </select><br>
+
+            <label pour="temps_cuisson">Temps de cuisson (minutes) :</label>
+            <input type="number" id="temps_cuisson" name="temps_cuisson" value="${recipe.temps_cuisson}" required><br>
+
+            <label pour="ingredients">Ingrédients :</label>
+            <textarea id="ingredients" name="ingredients" rows="5" required>${recipe.ingrédients.join("\n")}</textarea><br>
+
+            <label pour="instructions">Instructions :</label>
+            <textarea id="instructions" name="instructions" rows="5" required>${recipe.instructions.join("\n")}</textarea><br>
+
+            <label pour="image">Image de la recette :</label>
+            ${imageHtml}
+            <input type="file" id="image" name="image"><br>
+
+            <button type="submit">Sauvegarder les modifications</button>
+          </form>
+        `;
+      })
+      .catch(error => {
+        console.error("Erreur lors du chargement des détails de la recette :", error);
+        document.getElementById('modify-recipe').innerHTML = '<p>Erreur lors du chargement des détails de la recette.</p>';
+      });
+  </script>
+   <footer>
+    <h4>Made with Love by <b>DAOUDI Mounira</b></h4>
+  </footer>
+</body>
+</html>
